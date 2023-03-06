@@ -5,7 +5,7 @@ from fastai.vision.all import *
 def is_cat(x): return x[0].isupper()
 
 
-learn = load_learner('export.pkl')
+learn = load_learner('model.pkl')
 
 categories = ('Dog', 'Cat')
 
@@ -20,4 +20,4 @@ label = gr.outputs.Label()
 examples = ['dog.jpg', 'cat.jpg', 'grizzly.jpeg']
 
 iface = gr.Interface(fn=classify_image, inputs=image, outputs=label, examples=examples)
-iface.launch(inline=False)
+iface.launch(share=True, debug=True, inline=False)
